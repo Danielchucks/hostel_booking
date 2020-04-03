@@ -19,13 +19,13 @@ router.post(
          }
       )
    ],
-   (req, res) => {
+   async (req, res) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
          return res.status(400).json({ errors: errors.array });
       }
 
-      res.send("Passed");
+      const { name, email, password } = req.body;
    }
 );
 
